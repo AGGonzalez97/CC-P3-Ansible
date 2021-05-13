@@ -1,0 +1,22 @@
+- hosts: 34.78.50.233
+  sudo: yes
+  tasks:
+    - name: Apache
+      apt: name=apache2 state=latest
+      
+    - name: Root
+      file:
+        path: "/var/www/html"
+        state: directory
+        owner: "aggonzalez19972"
+        mode: '0755'
+
+    - name: PHP
+      apt: name=php update_cache=yes state=latest
+
+
+- hosts: 35.189.245.214
+  sudo: yes
+  tasks:
+    - name: MYSQL
+      apt: name=mysql-server update_cache=yes state=latest
